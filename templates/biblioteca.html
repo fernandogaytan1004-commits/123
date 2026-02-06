@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container my-5">
+  <h2 class="text-center mb-5 vintage-title">Colección</h2>
+
+  <div class="row g-5">
+    {% for album in albums %}
+    <div class="col-md-4">
+      <div class="card bg-dark text-light album-card">
+        <img src="{{ album.cover }}" class="card-img-top">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ album.titulo }}</h5>
+          <p class="card-text">{{ album.artista }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

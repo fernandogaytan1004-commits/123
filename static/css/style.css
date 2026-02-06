@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Playfair+Display&display=swap');
+
+body {
+    background: #0f0f0f;
+    color: #e8e3d8;
+    font-family: 'Playfair Display', serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.vintage-nav {
+    background: radial-gradient(circle, #1a1a1a, #000);
+    border-bottom: 1px solid #a67c52;
+}
+
+.navbar-brand {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 4px;
+    color: #d4af37 !important;
+}
+
+.vintage-title {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 3px;
+    color: #d4af37;
+}
+
+.hero-section {
+    padding: 60px 0;
+}
+
+.plato {
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, #111 60%, #000 100%);
+    border-radius: 50%;
+    animation: girar 8s linear infinite;
+    position: relative;
+    box-shadow: 0 0 40px rgba(212,175,55,0.3);
+}
+
+.plato::before {
+    content: "";
+    position: absolute;
+    inset: 35px;
+    border-radius: 50%;
+    background: repeating-radial-gradient(circle, #111, #111 4px, #000 6px);
+}
+
+.plato::after {
+    content: "";
+    position: absolute;
+    inset: 135px;
+    border-radius: 50%;
+    background: #d4af37;
+}
+
+@keyframes girar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.album-card {
+    border: 1px solid #a67c52;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+    transition: transform 0.4s ease;
+}
+
+.album-card:hover {
+    transform: translateY(-10px);
+}
+
+.album-card img {
+    filter: sepia(25%);
+}

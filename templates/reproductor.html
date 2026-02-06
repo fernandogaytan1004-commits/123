@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container text-center my-5">
+  <h2 class="vintage-title mb-4">Reproducción</h2>
+
+  <div class="plato mb-4"></div>
+
+  <audio controls class="w-75">
+    <source src="{{ url_for('static', filename='sample.mp3') }}" type="audio/mpeg">
+  </audio>
+</div>
+
+{% endblock %}

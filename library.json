@@ -1,0 +1,17 @@
+[
+  {
+    "titulo": "Jazz Classics",
+    "artista": "Various Artists",
+    "cover": "https://via.placeholder.com/500x500/111111/d4af37?text=Jazz"
+  },
+  {
+    "titulo": "Rock 70s",
+    "artista": "Various Artists",
+    "cover": "https://via.placeholder.com/500x500/111111/d4af37?text=Rock+70s"
+  },
+  {
+    "titulo": "Soul & Funk",
+    "artista": "Various Artists",
+    "cover": "https://via.placeholder.com/500x500/111111/d4af37?text=Soul+%26+Funk"
+  }
+]
