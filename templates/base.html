@@ -118,7 +118,12 @@
                 </li>
             </ul>
 
-            <a href="/auth" class="btn btn-auth">Acceder</a>
+            {% if session.loggedin %}
+    <span class="text-warning me-3">Hola, {{ session.nombre }}</span>
+    <a href="/logout" class="btn btn-auth">Salir</a>
+{% else %}
+    <a href="/auth" class="btn btn-auth">Acceder</a>
+{% endif %}
         </div>
     </div>
 </nav>

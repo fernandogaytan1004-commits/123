@@ -39,6 +39,53 @@ def ventas():
 def auth():
     return render_template("auth.html")
 
+@app.route("/register", methods=["POST"])
+def register():
+
+    nombre = request.form["nombre"]
+    correo = request.form["correo"]
+    password = request.form["password"]
+
+    hashed_password = hashlib.sha256(password.encode()).hexdigest()
+
+    cursor = mysql.connection.cursor()
+    cursor.execute(
+        "INSERT INTO usuarios (nombre, correo, password) VALUES (%s, %s, %s)",
+        (nombre, correo, hashed_password)
+    )
+    mysql.connection.commit()
+
+    return redirect("/auth")
+
+@app.route("/login", methods=["POST"])
+def login():
+
+    correo = request.form["correo"]
+    password = request.form["password"]
+
+    hashed_password = hashlib.sha256(password.encode()).hexdigest()
+
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute(
+        "SELECT * FROM usuarios WHERE correo = %s AND password = %s",
+        (correo, hashed_password)
+    )
+
+    user = cursor.fetchone()
+
+    if user:
+        session["loggedin"] = True
+        session["id"] = user["id"]
+        session["nombre"] = user["nombre"]
+        return redirect("/")
+    else:
+        return "Correo o contraseña incorrectos"
+    
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
+
 if __name__ == "__main__":
     app.run(debug=True)
 
